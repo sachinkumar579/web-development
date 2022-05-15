@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+
+<style>
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.container-form{
+   width: 20%;
+   height: 300px;
+   margin: 5px 5px;
+   border: 1px solid black;
+   border-radius: 5px;
+   box-shadow: 5px 10px 18px #888888;
+}
+
+.form{
+   display: flex;
+   flex-direction: column;
+}
+
+input{
+   padding: 10px;
+   margin: 10px;
+}
+
+button {
+   padding: 10px;
+   margin: 10px;
+   cursor: pointer;
+   border-radius: 5px;
+   box-shadow: 1px 1px;
+   font-family: Arial, Helvetica, sans-serif;
+   color: white;
+   border: none;
+   font-weight: bold;
+}
+
+.login {
+    background-color:  #1877f2;
+    font-size: 17px;
+}
+
+.create-account{
+    background-color: #42B72A;
+    font-size: 16px;
+}
+
+.login:hover{
+    opacity: 0.9;
+}
+
+.create-account:hover{
+    opacity: 0.9;
+}
+
+.link {
+      color:  #1877f2;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: small;
+      text-decoration: none;
+      text-align: center;
+}
+
+</style>
+
+<body>
+    <div class="container">    
+    <div class="container-form">
+        <form class="form"> 
+            <input type="text" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <button class="login">Log In</button>
+            <a href="" class="link">Forgotten Password?</a>
+            <button class="create-account">Create New Account</button>
+        </form>
+    </div> 
+    </div>
+
+</body>
+
+</html>

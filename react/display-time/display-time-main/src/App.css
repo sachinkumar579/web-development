@@ -1,0 +1,70 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 50px;
+  margin-top: 100px;
+}
+.secs-transition {
+  width: 100px;
+  height: 100px;
+  background: white;
+  position: relative;
+  animation: secs 1s infinite;
+  font-size: 70px;
+  font-weight: bolder;
+}
+
+.hours-transition,
+.mins-transition {
+  width: 100px;
+  height: 100px;
+  background: white;
+  position: relative;
+  animation: minsandhours 1s;
+  font-size: 70px;
+  font-weight: bolder;
+}
+
+span {
+  font-size: 70px;
+}
+
+.hours,
+.mins,
+.secs {
+  width: 100px;
+  height: 100px;
+  background: white;
+  position: relative;
+  font-size: 70px;
+  font-weight: bolder;
+}
+
+@keyframes minsandhours {
+  from {
+    top: 0px;
+    color: white;
+  }
+  to {
+    color: black;
+  }
+}
+
+@keyframes secs {
+  from {
+    top: 0px;
+  }
+  to {
+    color: white;
+  }
+}

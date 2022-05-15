@@ -1,0 +1,310 @@
+ReactJS is Javascript library for creating user interfaces 
+
+It is all about components. It can be as small as an HTML element
+
+Client side JS library 
+
+Built rich user interfaces
+
+Can use React to control parts of the page
+
+React is all about components
+
+All user interfaces are made up of components 
+
+Components - combination of HTML , CSS and JS code
+
+Components - reusable building blocks 
+
+Mostly, React is all about components and these components are build by combining HTML, JS and CSS scripts 
+
+React follows declarative approach . We don't need to explicitly define how the DOM elements should be displayed   
+Plain JS follows imperative approach - as opposed to giving clear instructions for displaying DOM elements
+
+Its a best practice to add new components in a new js file 
+
+A components in React is a special kind of Javascript function that return HTML code
+
+Custom components must start with Uppercase character 
+
+A simple rules that React applies is that lower case elements are built in HTML elements 
+
+In React Components there is one important rule regarding HTML , JSX code returned inside the component , there must be only one root element per return statement or per JSX code snippet 
+
+HTML - class, JSX - className 
+
+To output dynamic data React gives a special syntax inside of JSX code snippets
+
+Hard coded data can be replaced with { data } . In these {} we can run basic javascript code  
+
+Components can be made reusable by using parameters and a concept called props 
+
+Custom components can have their own properties called props 
+
+one of the key features of React - using props to make components reusable . 
+
+Its a way of sharing data between components 
+
+We can pass data to components to make it reusable and configurable 
+
+In React terms Card.js component is used to represent container with round corner and shadows.
+
+props.children is the content between the opening and closing custom component tag
+
+Composition allows combining Components. props.children 
+
+JSX code is not supported by the browser 
+
+import React from 'react' - under the hood React is used to create elements when JSX is used 
+
+React projects like the ones we create via "create-react-app" support JSX syntax. It gets compiled to standard JS code behind the scenes.
+
+A component is just that: A JS function that typically returns some HTML (or, to be precise: JSX) code which will be shown on the screen when that component is used.
+
+React composition is a development pattern where we create components from other components 
+
+Listening to events and working with Event handlers 
+
+React exposes all events as props which start with on 
+
+Ex script : 
+      <button onClick={() => { console.log("hi"); }} >
+        Change title
+      </button>
+      
+      const handler = () => {
+       console.log("handler");
+      };
+      <button onClick={handler}>Change title</button>
+ 
+ React evaluates a component only once i.e it executes the function only once 
+
+
+ import { useState } from "react";
+ const [name, setName] = useState(props.name); 
+ setName("updated"); By calling this function we are telling React we want to assign a new value to an element
+ It will execute the function component again . The component with which useState was registered should be re-evaluated 
+ 
+ Sharing data between sibling components -its not possible so you pass a function as a prop from parent component and execute that in child component
+
+import syntax
+import ReactDOM from 'react-dom' => we are importing ReactDOM object from react-dom library
+It also means that react-dom library is exporting ReactDOM object 
+
+You cant import css file in a js file but you can in a react project
+
+index.js is the first file to be executed in a react project 
+
+index.html - single html is delivered to the browser , rendered by the browser 
+
+Can't use custom components as wrappers around other kind of content 
+
+It works only for built in html elements like div or h2 tags 
+
+All default elements supports className but custom components don't 
+
+Composition feature - props.children 
+
+JSX code is not supported by the browser. 
+
+When we return JSX React.createElement() method gets called
+
+
+return React.createElement(
+   'div', 
+    {} ,
+    React.createElement('h2'),{},"Lets get started"),
+    React.createElement(Expenses, {items:expenses})
+)
+
+is same as writing 
+
+return (
+     <div>
+          <h2>Lets get started</h2>
+          <Expenses items={expenses}/>
+    </div>
+)
+
+
+in modern project import React can be omitted 
+
+
+React is used under the hood. it gets transformed under the hood
+
+Since it calls React.createElement() under the hood its evident why there must only one root element
+
+We create 1 element which then can have child elements
+
+Alternate function syntax
+const App = () => {
+  return <div> </div>
+}
+  
+Identifying hooks. They start with use
+
+They should be called only inside component functions 
+
+useState() - returns 2 values - current state values and a function to update that value 
+
+React will reevaluate the component function in which it was registered 
+
+useState() will not render the component right way instead it will schedule the component function to render after the function is executed 
+
+const [title, setTitle] = useState(props.title);
+since the function is re evaluated every time we call useState const is used for declaration 
+
+Controller components - when the logic for value and changes for value are present in parent component 
+
+Stateless/dumb/presentation components - no logic for managing state. Display using {props.data} 
+
+Updating component state - call state updating function which useState returned 
+
+Use key prop in custom/built in component to display list of items 
+
+
+Controllling CSS properties - inline css styling 
+
+const [isValid, setIsValid] = useState(true);
+<label style={{ color: !isValid ? "red" : "Green" }}>Course Goal</label>
+
+Special syntax in function component
+
+return (
+  <div> 
+  { include some custom component }
+  </div>
+) 
+  
+Controlling CSS in JSX 
+  <div className={`form-control ${!isValid ? "invalid" : ""}`}>
+in this script , if isValid className will be form-control invalid otherwise only form-control 
+notice the tilde (`) operator
+
+This will dynamically add/ remove classes from elements and it will be Reacts job to add/remove from the DOM 
+
+Import statement - include the extension for non javascript files 
+
+Can't use className in custom components 
+
+A special syntax
+ {user != "" && <DisplayUser user={user}></DisplayUser>}
+ 
+ if the first condition user!="" is true React will render the component added after && . Weird 
+ 
+ We cant return more than  1 "root" JSX element . Also can't store more than 1 "root" JSX element in a variable 
+ 
+ We can return only one value in the component . it can be a div tag or any other tag or even a custom component 
+ We can also array of JSX elements 
+ 
+ Solving div soup problem - adding a wrapper 
+ 
+ const Wrappers = (props) => {
+  return props.children;   // What we get here is the content present within <Wrapper></Wrapper> 
+};
+
+export default Wrappers;
+This will not render anything to the DOM. This will work because the requirement is that there should be one root element 
+
+include Wrapper in return statement 
+
+return <Wrapper> JSX content  </Wrapper>
+
+
+Reacts solution for the div soup problem 
+
+Wrap JSX content within <> </> or <React.Fragment> </React.Fragement>
+
+With Fragments we can write cleaner HTML code ending up with less HTML elements 
+
+React library has state management features
+React DOM library uses React to bring the features to the web browser 
+
+React portal Move the HTML content that is about to be rendered into a different place 
+
+With Fragment and Portal we can write Semantically correct HTML code 
+
+Getting access to HTML elements is convinient using useRef() React Hook 
+
+With refs we can setup a connection between a HTML element that is rendered and the javascript code 
+
+ref={nameInputRef} nameInputRef will be real DOM element . useRef() always returns an object { current : DOM } 
+
+It is recomended not to manipulate DOM , DOM should only be manipulated by React 
+ 
+When the internal state of input field is controlled by React they are called controlled components 
+
+whne we use Refs we have uncontrolled components 
+
+If we manage the state and update the state on every keystroke and we feed that state back into the input with value prop that approach is called controlled approach 
+Those fields are controlled components because their internal state is controlled by React 
+
+CSS modules
+React projects created using create react app supports CSS modules .
+
+This is how it works
+
+import styles from './Input.module.css' // We import an object from the CSS file and that turns out to be an object and in that object we will have every 
+class we defined in that file as a property
+
+<input className= {styles.input}> // Apply CSS styles on custome components / HTML elements
+
+When you inspect you will see a special class name : Components_HTMLElement_SomeUniqueHash . This ensures class names are unique in a React project 
+
+useEffect( ()=> { } , []) React Hook will run at least once . Mostly when the app starts up 
+
+----------------------------------------------------------------------------------------------
+Some important points from the udemy course 
+
+What to add & Not to add as Dependencies
+In the previous lecture, we explored useEffect() dependencies.
+
+You learned, that you should add "everything" you use in the effect function as a dependency - i.e. all state variables and functions you use in there.
+
+That is correct, but there are a few exceptions you should be aware of:
+
+You DON'T need to add state updating functions (as we did in the last lecture with setFormIsValid): React guarantees that those functions never change, hence you don't need to add them as dependencies (you could though)
+
+You also DON'T need to add "built-in" APIs or functions like fetch(), localStorage etc (functions and features built-into the browser and hence available globally): These browser APIs / global functions are not related to the React component render cycle and they also never change
+
+You also DON'T need to add variables or functions you might've defined OUTSIDE of your components (e.g. if you create a new helper function in a separate file): Such functions or variables also are not created inside of a component function and hence changing them won't affect your components (components won't be re-evaluated if such variables or functions change and vice-versa)
+
+So long story short: You must add all "things" you use in your effect function if those "things" could change because your component (or some parent component) re-rendered. That's why variables or state defined in component functions, props or functions defined in component functions have to be added as dependencies!
+
+Here's a made-up dummy example to further clarify the above-mentioned scenarios:
+
+import { useEffect, useState } from 'react';
+ 
+let myTimer;
+ 
+const MyComponent = (props) => {
+  const [timerIsActive, setTimerIsActive] = useState(false);
+ 
+  const { timerDuration } = props; // using destructuring to pull out specific props values
+ 
+  useEffect(() => {
+    if (!timerIsActive) {
+      setTimerIsActive(true);
+      myTimer = setTimeout(() => {
+        setTimerIsActive(false);
+      }, timerDuration);
+    }
+  }, [timerIsActive, timerDuration]);
+};
+In this example:
+
+timerIsActive is added as a dependency because it's component state that may change when the component changes (e.g. because the state was updated)
+
+timerDuration is added as a dependency because it's a prop value of that component - so it may change if a parent component changes that value (causing this MyComponent component to re-render as well)
+
+setTimerIsActive is NOT added as a dependency because it's that exception: State updating functions could be added but don't have to be added since React guarantees that the functions themselves never change
+
+myTimer is NOT added as a dependency because it's not a component-internal variable (i.e. not some state or a prop value) - it's defined outside of the component and changing it (no matter where) wouldn't cause the component to be re-evaluated
+
+setTimeout is NOT added as a dependency because it's a built-in API (built-into the browser) - it's independent from React and your components, it doesn't change
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+useReducers() used when many states are updated in the same action 
+
