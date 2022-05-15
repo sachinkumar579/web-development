@@ -1,526 +1,568 @@
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Git commands</title>
-    </head>
-    <body>
-      <h3>Git commands</h3>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Git commands</title>
+  </head>
+  <body>
+    <h3>Git commands</h3>
 
-      <div>
-        <ol>
-          <li>
-            <b>git init</b>
-            <span>
-              Creates a local git repository. Technically it creates a hidden .git
-              folder</span
-            >
+    <div>
+      <ol>
+        <li>
+          <b>git init</b>
+          <span>
+            Creates a local git repository. Technically it creates a hidden .git
+            folder</span
+          >
 
-            <ul>
-              <li>
-                Create a folder - <b>mkdir test-repo</b> This is a windows command
-              </li>
-              <li>
-                Navigate into the directory <b>cd test-repo</b> This is a windows
-                command
-              </li>
-              <li>
-                Make a git repo for tracking changes and uploading files to remote
-                server <b>git init</b> This is a git command
-              </li>
-            </ul>
-          </li>
-          <li>
-            <b>git clone</b>
+          <ul>
+            <li>
+              Create a folder - <b>mkdir test-repo</b> This is a windows command
+            </li>
+            <li>
+              Navigate into the directory <b>cd test-repo</b> This is a windows
+              command
+            </li>
+            <li>
+              Make a git repo for tracking changes and uploading files to remote
+              server <b>git init</b> This is a git command
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>git clone</b>
 
-            <span
-              >This copies an existing Git repository. It has its own history
-              ,manages its own files and is isolated environment from the original
-              repository</span
-            >
+          <span
+            >This copies an existing Git repository. It has its own history
+            ,manages its own files and is isolated environment from the original
+            repository</span
+          >
 
-            <ul>
-              <li>
-                <b>git clone repo</b> - cloning with repo url - downloads files
-                from the specified repo url
-              </li>
-              <li>
-                <b>git clone repo directory</b> - clone with repo url to a
-                specified directory
-              </li>
-              <li><b>git clone --branch tag repo</b> - clone a specific tag</li>
-              <li>
-                <b>git clone -depth=1 repo</b> - shallow cloning - an example for
-                cloning only with 1 commit id in history
-              </li>
-              <li>
-                <b>git clone -b feature repo</b> - clone specified branch from
-                repo . -b option will fetch all branches and checkout the branch
-                we choose
-              </li>
-              <li>
-                <b>git clone --single-branch --branch branch repo </b> - clone and
-                fetch exclusively the branch we chose
-              </li>
-            </ul>
-          </li>
-          <li>
-            <b>git add</b>
+          <ul>
+            <li>
+              <b>git clone repo</b> - cloning with repo url - downloads files
+              from the specified repo url
+            </li>
+            <li>
+              <b>git clone repo directory</b> - clone with repo url to a
+              specified directory
+            </li>
+            <li><b>git clone --branch tag repo</b> - clone a specific tag</li>
+            <li>
+              <b>git clone -depth=1 repo</b> - shallow cloning - an example for
+              cloning only with 1 commit id in history
+            </li>
+            <li>
+              <b>git clone -b feature repo</b> - clone specified branch from
+              repo . -b option will fetch all branches and checkout the branch
+              we choose
+            </li>
+            <li>
+              <b>git clone --single-branch --branch branch repo </b> - clone and
+              fetch exclusively the branch we chose
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>git add</b>
 
-            <span> adds changes from working directory to the staging area </span>
-          </li>
-          <li>
-            <b>git stage</b>
+          <span> adds changes from working directory to the staging area </span>
+        </li>
+        <li>
+          <b>git stage</b>
 
-            <span>
-              Does the same thing as add. adds changes from working directory to
-              the staging area. You can skip this command and go directly to
-              <b>git commit</b>
-            </span>
-          </li>
-
-          <li>
-            <b>git status</b>
-
-            <span
-              >displays the state of the working directory and the staging area.
-              see which changes have been staged, which haven’t, and which files
-              aren’t being tracked by Git. Status output does not show you any
-              information regarding the committed project history</span
-            >
-          </li>
-
-          <li>
+          <span>
+            Does the same thing as add. adds changes from working directory to
+            the staging area. You can skip this command and go directly to
             <b>git commit</b>
+          </span>
+        </li>
 
-            <span>
-              Commits are snapshots of the project . We can recall commits or
-              revert to older versions . The changes are not uploaded to remote
-              repository yet</span
-            >
-          </li>
-          <li>
-            <b>git push</b>
+        <li>
+          <b>git status</b>
 
-            <span
-              >transfer commits from local repository to remote repository.
-              Pushing exports commits from local branches to remote branches</span
-            >
+          <span
+            >displays the state of the working directory and the staging area.
+            see which changes have been staged, which haven’t, and which files
+            aren’t being tracked by Git. Status output does not show you any
+            information regarding the committed project history</span
+          >
+        </li>
 
-            <ul>
-              <li>
-                <b>creating remote branches</b>
-                <ul>
-                  <li><b>git remote add new-remote-repo url</b></li>
-                  <li>
-                    <b>git push new-remote-repo newbranchname </b>- This command
-                    will push a copy of the local branch newbranchname to the
-                    remote repo new-remote-repo.
-                  </li>
-                </ul>
-              </li>
+        <li>
+          <b>git commit</b>
 
-              <li>
-                <b>deleting remote branches</b>
-                <span><b>git push origin --delete branchname</b></span>
-              </li>
-            </ul>
-          </li>
+          <span>
+            Commits are snapshots of the project . We can recall commits or
+            revert to older versions . The changes are not uploaded to remote
+            repository yet</span
+          >
+        </li>
+        <li>
+          <b>git push</b>
 
-          <li>
-            <b>git stash</b>
+          <span
+            >transfer commits from local repository to remote repository.
+            Pushing exports commits from local branches to remote branches</span
+          >
 
-            <span>
-              Temporarily stashes changes made to your working copy , It takes
-              uncommitted changes , saves them for later use and reverts them from
-              working copy
-            </span>
-
-            <ul>
-              <li><b>git stash</b></li>
-              <li><b>git stash pop</b></li>
-              <li><b>git stash apply</b></li>
-            </ul>
-          </li>
-
-          <li>
-            <b>git diff</b>
-
-            <span
-              >outputs changes between 2 data sets . we can give commit ids as
-              input and it will show all changes
-            </span>
-          </li>
-
-          <li>
-            <b>git config</b>
-
-            <span>Can be used for customizations</span>
-            <ul>
-              <li>Selecting the editor for git</li>
-              <li>git aliases</li>
-            </ul>
-          </li>
-
-          <li>
-            <b>git fetch</b>
-            <span
-              >git fetch will retrieve the latest meta data info from original
-              remote repo and it doesn't do any file transferring . Can be used to
-              know the chages done in remote repo since the last pull
-            </span>
-            <ul>
-              <li>
-                <b>git fetch --prune</b>
-
-                <span>
-                  Pruning during fetch is a cleanup method that deletes outdated
-                  remote references in your .git directory
-                </span>
-              </li>
-            </ul>
-          </li>
-
-          <li>
-            <b>git pull</b>
-            <span
-              >git pull will bring the changes from remote repository . Files in
-              working directory will get updated . Pull changes the file in
-              current branch and working directory. it will download the remote
-              content for the active local branch and immediately execute git
-              merge to create a merge commit for the new remote content. If you
-              have pending changes in progress this will cause conflicts and
-              kick-off the merge conflict resolution flow
-            </span>
-          </li>
-
-          <li>
-            <b>git remote</b>
-
-            <span>
-              git remote command is used to create ,view and delete connections to
-              other repositories . They can be used as reference for other remote
-              repositories
-            </span>
-
-            <span>
-              <b>git remote -v</b> - lists connections to other repositories with
-              URLs</span
-            >
-          </li>
-
-          <li>
-            <b>git clean</b>
-
-            <ul>
-              <li>
-                <b>git clean -n</b>
-                <span
-                  >Removes local untracked files from current git branch . To see
-                  which files are deleted run <b>git clean -n</b>
-                </span>
-              </li>
-              <li>
-                <b>git clean -f</b>
-                <span>
-                  This command will delete local untracked files for real
-                </span>
-              </li>
-            </ul>
-          </li>
-
-          <li>
-            <b>git branch</b>
-
-            <span
-              >this command lets you create , list , rename and delete
-              branches</span
-            >
-
-            <ul>
-              <li><b>git branch</b> - list all branches in the repository</li>
-              <li>
-                <b>git branch newbranch</b> - create a new branch . doesn't
-                checkout the new branch
-              </li>
-              <li>
-                <b>git branch -d branchname</b> - delete the specified local
-                branch. Safe operation as it doesn't delete branches if it has
-                unmerged changes (local commits)
-              </li>
-
-              <li>
-                <b>git branch -D branchname</b> - force delete even if it has
-                unmerged changes (local commits)
-              </li>
-              <li><b>git branch -m branchname</b> - rename branch name</li>
-              <li><b>git branch -a</b> - list all branches</li>
-              <li><b>git branch -r</b> - list all remote branches</li>
-            </ul>
-          </li>
-
-          <li>
-            <b>git checkout branchname</b>
-
-            <span>Switch branches</span>
-            <ul>
-              <li><b>git checkout existingbranch</b></li>
-              <li>
-                <b>git checkout -b newbranch </b>- The above example
-                simultaneously creates and checks out new-branch. The -b option is
-                a convenience flag that tells Git to run git branch before running
-                <b>git checkout new-branch</b>.
-              </li>
-              <li>
-                <b>git checkout commitid </b>- this makes the working directory
-                match the exact state of the commitid . To continue developing,
-                you need to get back to the “current” state of your project-
-                <b>git checkout main</b>
-              </li>
-              <li>
-                <b>git checkout -t remotename/branchname</b>
-                <span>
-                  switch to a remote branch. make sure to fetch remote branch with
-                  git fetch command first . t option stands for track. In modern
-                  versions of Git, you can then checkout the remote branch like a
-                  local branch.
-                </span>
-              </li>
-
-              <li>
-                <b>git checkout -B branch commitid</b>
-                <span>
-                  to checkout a new branch from a specific start point .</span
-                >
-                <br />
-                <span
-                  >To list commits done in the repository run
-                  <b>git log --oneline --graph</b></span
-                >
-              </li>
-            </ul>
-
-            <span
-              >Make sure that the target branch exists by running
-              <b>git branch</b></span
-            >
-          </li>
-
-          <li>
-            <b>git cherry -v</b>
-
-            <span>Check local commits</span>
-          </li>
-
-          <li>
-            <b>git reset</b>
-
-            <span>undo staging changes</span><br />
-
-            <span><b>git reset --hard origin </b>- removes local commits</span>
-          </li>
-
-          <li>
-            <b>git merge</b>
-
-            <span>to combine two branches</span>
-
-            <ul>
-              <li>
-                execute git checkout to switch to the receiving branch -
-                <b>git checkout main</b>
-              </li>
-              <li>
-                Make sure the receiving branch and the merging branch are
-                up-to-date with the latest remote changes. Execute
-                <b>git fetch</b> to pull the latest remote commits. Once the fetch
-                is completed ensure the main branch has the latest updates by
-                executing <b>git pull</b>.
-              </li>
-              <li>
-                merge can be initiated by executing
-                <b>git merge branchname</b> where branchname is the name of the
-                branch that will be merged into the receiving branch (main
-                branch). Resolve merge conflicts - add the changes to staging area
-                and commit - <b>git add . ; git commit -m "merging"</b>
-              </li>
-              <li>git push - to push commits to remote repository</li>
-            </ul>
-          </li>
-
-          <li>
-            <b>git revert</b>
-
-            <span>
-              undo recent commit or a particular commit from the history- creates
-              a new commit
+          <ul>
+            <li>
+              <b>creating remote branches</b>
               <ul>
-                <li><b>git revert HEAD</b></li>
-                <li><b>git revert commitid</b></li>
+                <li><b>git remote add new-remote-repo url</b></li>
+                <li>
+                  <b>git push new-remote-repo newbranchname </b>- This command
+                  will push a copy of the local branch newbranchname to the
+                  remote repo new-remote-repo.
+                </li>
               </ul>
-            </span>
-          </li>
+            </li>
 
-          <li>
-            <b>git blame</b>
+            <li>
+              <b>deleting remote branches</b>
+              <span><b>git push origin --delete branchname</b></span>
+            </li>
+          </ul>
+        </li>
 
-            <span
-              >used to examine specific points of a file's history and get context
-              as to who the last author was that modified the line</span
-            >
-            <span><b>git blame filename</b></span>
-          </li>
+        <li>
+          <b>git stash</b>
 
-          <li>
-            <b>git log</b>
-            <span>show commits for the currently selected branch</span>
+          <span>
+            Temporarily stashes changes made to your working copy , It takes
+            uncommitted changes , saves them for later use and reverts them from
+            working copy
+          </span>
+
+          <ul>
+            <li><b>git stash</b></li>
+            <li><b>git stash pop</b></li>
+            <li><b>git stash apply</b></li>
+          </ul>
+        </li>
+
+        <li>
+          <b>git diff</b>
+
+          <span
+            >outputs changes between 2 data sets . we can give commit ids as
+            input and it will show all changes
+          </span>
+        </li>
+
+        <li>
+          <b>git config</b>
+
+          <span>Can be used for customizations</span>
+          <ul>
+            <li>Selecting the editor for git</li>
+            <li>git aliases</li>
+          </ul>
+        </li>
+
+        <li>
+          <b>git fetch</b>
+          <span
+            >git fetch will retrieve the latest meta data info from original
+            remote repo and it doesn't do any file transferring . Can be used to
+            know the chages done in remote repo since the last pull
+          </span>
+          <ul>
+            <li>
+              <b>git fetch --prune</b>
+
+              <span>
+                Pruning during fetch is a cleanup method that deletes outdated
+                remote references in your .git directory
+              </span>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <b>git pull</b>
+          <span
+            >git pull will bring the changes from remote repository . Files in
+            working directory will get updated . Pull changes the file in
+            current branch and working directory. it will download the remote
+            content for the active local branch and immediately execute git
+            merge to create a merge commit for the new remote content. If you
+            have pending changes in progress this will cause conflicts and
+            kick-off the merge conflict resolution flow
+          </span>
+        </li>
+
+        <li>
+          <b>git remote</b>
+
+          <span>
+            git remote command is used to create ,view and delete connections to
+            other repositories . They can be used as reference for other remote
+            repositories
+          </span>
+
+          <span>
+            <b>git remote -v</b> - lists connections to other repositories with
+            URLs</span
+          >
+        </li>
+
+        <li>
+          <b>git clean</b>
+
+          <ul>
+            <li>
+              <b>git clean -n</b>
+              <span
+                >Removes local untracked files from current git branch . To see
+                which files are deleted run <b>git clean -n</b>
+              </span>
+            </li>
+            <li>
+              <b>git clean -f</b>
+              <span>
+                This command will delete local untracked files for real
+              </span>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <b>git branch</b>
+
+          <span
+            >this command lets you create , list , rename and delete
+            branches</span
+          >
+
+          <ul>
+            <li><b>git branch</b> - list all branches in the repository</li>
+            <li>
+              <b>git branch newbranch</b> - create a new branch . doesn't
+              checkout the new branch
+            </li>
+            <li>
+              <b>git branch -d branchname</b> - delete the specified local
+              branch. Safe operation as it doesn't delete branches if it has
+              unmerged changes (local commits)
+            </li>
+
+            <li>
+              <b>git branch -D branchname</b> - force delete even if it has
+              unmerged changes (local commits)
+            </li>
+            <li><b>git branch -m branchname</b> - rename branch name</li>
+            <li><b>git branch -a</b> - list all branches</li>
+            <li><b>git branch -r</b> - list all remote branches</li>
+          </ul>
+        </li>
+
+        <li>
+          <b>git checkout branchname</b>
+
+          <span>Switch branches</span>
+          <ul>
+            <li><b>git checkout existingbranch</b></li>
+            <li>
+              <b>git checkout -b newbranch </b>- The above example
+              simultaneously creates and checks out new-branch. The -b option is
+              a convenience flag that tells Git to run git branch before running
+              <b>git checkout new-branch</b>.
+            </li>
+            <li>
+              <b>git checkout commitid </b>- this makes the working directory
+              match the exact state of the commitid . To continue developing,
+              you need to get back to the “current” state of your project-
+              <b>git checkout main</b>
+            </li>
+            <li>
+              <b>git checkout -t remotename/branchname</b>
+              <span>
+                switch to a remote branch. make sure to fetch remote branch with
+                git fetch command first . t option stands for track. In modern
+                versions of Git, you can then checkout the remote branch like a
+                local branch.
+              </span>
+            </li>
+
+            <li>
+              <b>git checkout -B branch commitid</b>
+              <span>
+                to checkout a new branch from a specific start point .</span
+              >
+              <br />
+              <span
+                >To list commits done in the repository run
+                <b>git log --oneline --graph</b></span
+              >
+            </li>
+          </ul>
+
+          <span
+            >Make sure that the target branch exists by running
+            <b>git branch</b></span
+          >
+        </li>
+
+        <li>
+          <b>git cherry -v</b>
+
+          <span>Check local commits</span>
+        </li>
+
+        <li>
+          <b>git cherry-pick</b>
+
+          <span>Apply selected commits from a branch</span>
+          <ul>
+            <li><b>STEPS</b></li>
+            <li><b>git checkout develop</b> - checkout to branch</li>
+            <li>
+              <b>git cherry-pick commitid</b> - commitid - a commit id from some
+              other branch
+            </li>
+            <li>
+              <b>git push develop</b> - to push local commit to remote develop
+              branch
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <b>git reset</b>
+
+          <span>undo staging changes</span><br />
+
+          <span><b>git reset --hard origin </b>- removes local commits</span>
+        </li>
+
+        <li>
+          <b>git merge</b>
+
+          <span>to combine two branches</span>
+
+          <ul>
+            <li>
+              execute git checkout to switch to the receiving branch -
+              <b>git checkout main</b>
+            </li>
+            <li>
+              Make sure the receiving branch and the merging branch are
+              up-to-date with the latest remote changes. Execute
+              <b>git fetch</b> to pull the latest remote commits. Once the fetch
+              is completed ensure the main branch has the latest updates by
+              executing <b>git pull</b>.
+            </li>
+            <li>
+              merge can be initiated by executing
+              <b>git merge branchname</b> where branchname is the name of the
+              branch that will be merged into the receiving branch (main
+              branch). Resolve merge conflicts - add the changes to staging area
+              and commit - <b>git add . ; git commit -m "merging"</b>
+            </li>
+            <li>git push - to push commits to remote repository</li>
+          </ul>
+        </li>
+
+        <li>
+          <span>squash commits during merge</span>
+
+          <ul>
+            <li><b>git checkout main</b> - checkout main branch</li>
+            <li>
+              <b>git merge --squash develop</b> - merge changes from develop to
+              main
+            </li>
+            <li>
+              resolve merge conflicts if any and check staging status
+              <b>git status</b>
+            </li>
+            <li>
+              <b>git commit -m "squashed merges"</b> - creates 1 commit with all
+              changes from develop
+            </li>
+            <li>
+              <b>git push main</b> - push the changes from local to remote main
+              branch
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <b>git revert</b>
+
+          <span>
+            undo recent commit or a particular commit from the history- creates
+            a new commit
             <ul>
-              <li><b>git log -n</b> - show last n commits</li>
-              <li><b>git log --oneline</b>- show commit ids with messages</li>
-              <li>
-                <b>git log --branches=*</b
-                ><span>- view all commits across all branches by executing </span>
-              </li>
-              <li>
-                <b>git log -S</b>
-                <span
-                  >To list all original commits in-which a specific code piece was
-                  added or modified execute git log with the -S option. Append the
-                  -S option with the code you are looking for</span
-                >
-                <span><b>git log -S "SearchText"</b></span>
-              </li>
+              <li><b>git revert HEAD</b></li>
+              <li><b>git revert commitid</b></li>
             </ul>
-          </li>
+          </span>
+        </li>
 
-          <li>
-            <b>git rebase</b>
+        <li>
+          <b>git blame</b>
 
-            <span>transfer missing commits from one branch to another</span>
-            <ul>
-              <li><b>git checkout feature</b> - checkout branch to rebase</li>
-              <li>
-                <b>git rebase main </b>- rebase commits from main branch to
-                feature branch
-              </li>
-              <li>
-                if there are merge conflicts , resolve them and stage file. check
-                status by running <b>git status</b> and don't commit yet
+          <span
+            >used to examine specific points of a file's history and get context
+            as to who the last author was that modified the line</span
+          >
+          <span><b>git blame filename</b></span>
+        </li>
 
-                <ul>
-                  <li><b>git rebase --continue</b> - continue the rebase</li>
-                  <li>
-                    <b>git rebase --skip</b> - skip the commit which caused merge
-                    conflict
-                  </li>
-                </ul>
-              </li>
-              <li>
-                You will see the rebase is completed with message "Successfully
-                rebased and updated" . At this point feature branch in local is
-                rebased . Don't pull the latest at this point. Run the command -
-                <b>git push --force-with-lease</b> - run when there are no merge
-                conflicts . push the local commits to remote feature branch.
-                --force-with-lease - won’t overwrite any commits on the remote
-                branch that someone else might have added while you were rebasing
-                --force - will overwrite all commits in remote branch
-              </li>
-            </ul>
-          </li>
+        <li>
+          <b>git log</b>
+          <span>show commits for the currently selected branch</span>
+          <ul>
+            <li><b>git log -n</b> - show last n commits</li>
+            <li><b>git log --oneline</b>- show commit ids with messages</li>
+            <li>
+              <b>git log --branches=*</b
+              ><span>- view all commits across all branches by executing </span>
+            </li>
+            <li>
+              <b>git log -S</b>
+              <span
+                >To list all original commits in-which a specific code piece was
+                added or modified execute git log with the -S option. Append the
+                -S option with the code you are looking for</span
+              >
+              <span><b>git log -S "SearchText"</b></span>
+            </li>
+          </ul>
+        </li>
 
-          <li>
-            <b>git tag</b>
-            <span
-              >Tags are ref's that point to specific points in Git history.
-              Tagging is generally used to capture a point in history that is used
-              for a marked version release (i.e. v1. 0.1). A tag is like a branch
-              that doesn't change. Unlike branches, tags, after being created,
-              have no further history of commits</span
-            >
+        <li>
+          <b>git rebase</b>
 
-            <ul>
-              <li>
-                <b>git log --oneline</b> - check if working directory is clean
-              </li>
-              <li>
-                <b>git tag releaseV1 feature</b> - this will tag the last commit
-                on feature branch
-              </li>
-              <li><b>git log --oneline</b> - check if tag is added</li>
-              <li><b>git tag</b> - to view all tags</li>
-              <li>
-                <b>git push --tags</b> - to push tags to the remote repository
-              </li>
-            </ul>
-          </li>
+          <span>transfer missing commits from one branch to another</span>
+          <ul>
+            <li><b>git checkout feature</b> - checkout branch to rebase</li>
+            <li>
+              <b>git rebase main </b>- rebase commits from main branch to
+              feature branch
+            </li>
+            <li>
+              if there are merge conflicts , resolve them and stage file. check
+              status by running <b>git status</b> and don't commit yet
 
-          <li>
-            <b>git bisect</b>
-            <span
-              >walks you through recent commits ,asks you if they are good or bad
-              and narrows down the broken commit</span
-            >
+              <ul>
+                <li><b>git rebase --continue</b> - continue the rebase</li>
+                <li>
+                  <b>git rebase --skip</b> - skip the commit which caused merge
+                  conflict
+                </li>
+              </ul>
+            </li>
+            <li>
+              You will see the rebase is completed with message "Successfully
+              rebased and updated" . At this point feature branch in local is
+              rebased . Don't pull the latest at this point. Run the command -
+              <b>git push --force-with-lease</b> - run when there are no merge
+              conflicts . push the local commits to remote feature branch.
+              --force-with-lease - won’t overwrite any commits on the remote
+              branch that someone else might have added while you were rebasing
+              --force - will overwrite all commits in remote branch
+            </li>
+          </ul>
+        </li>
 
-            <ul>
-              <li>use <b>git log</b> to find a good commit and bad commit</li>
-              <li>Assuming newest commit is bad and the first commit is good</li>
-              <li><b>git bisect start</b></li>
-              <li>
-                <b>git bisect good commitid</b> - let the bisect know of a good
-                commit
-              </li>
-              <li>
-                <b>git bisect bad commitid</b> - let the bisect know of a bad
-                commit. This will checkout an old commit for us - the commit
-                halfway between good commit and bad commit - it cuts the commit
-                history down in halves untill it finds the bad commit
-              </li>
-              <li>
-                If this commit is bad run <b>git bisect bad</b> or if it is good
-                run <b>git bisect good</b>
-              </li>
-              <li>
-                Repeat untill bisect finds the bad commit . It prints the first
-                bad commit - commitid is the first bad commit
-              </li>
-              <li>
-                To end run <b>git bisect reset</b> . It will checkout the current
-                branch
-              </li>
-              <li>
-                To know more about the bad commit run <b>git show commitid</b>
-              </li>
-            </ul>
-          </li>
-        </ol>
-      </div>
+        <li>
+          <b>git tag</b>
+          <span
+            >Tags are ref's that point to specific points in Git history.
+            Tagging is generally used to capture a point in history that is used
+            for a marked version release (i.e. v1. 0.1). A tag is like a branch
+            that doesn't change. Unlike branches, tags, after being created,
+            have no further history of commits</span
+          >
 
-      <br />
-      <div>
-        <b>Reference</b>
+          <ul>
+            <li>
+              <b>git log --oneline</b> - check if working directory is clean
+            </li>
+            <li>
+              <b>git tag releaseV1 feature</b> - this will tag the last commit
+              on feature branch
+            </li>
+            <li><b>git log --oneline</b> - check if tag is added</li>
+            <li><b>git tag</b> - to view all tags</li>
+            <li>
+              <b>git push --tags</b> - to push tags to the remote repository
+            </li>
+          </ul>
+        </li>
 
-        <ul>
-          <li>https://www.atlassian.com/git/tutorials</li>
-          <li>
-            https://www.freecodecamp.org/news/git-fetch-vs-pull/#:~:text=git%20fetch%20is%20the%20command,changes%20from%20the%20remote%20repository.
-          </li>
-          <li>https://dzone.com/articles/top-20-git-commands-with-examples</li>
-          <li>
-            https://stackoverflow.com/questions/3197413/how-do-i-delete-unpushed-git-commits
-          </li>
-          <li>
-            https://opensource.com/article/18/6/git-reset-revert-rebase-commands
-          </li>
-          <li>https://www.becomebetterprogrammer.com/git-rebase/</li>
-          <li>
-            https://www.metaltoad.com/blog/beginners-guide-git-bisect-process-elimination
-          </li>
-          <li>
-            https://www.freecodecamp.org/news/git-config-how-to-configure-git-settings/
-          </li>
-        </ul>
-      </div>
-    </body>
-  </html>
+        <li>
+          <b>git bisect</b>
+          <span
+            >walks you through recent commits ,asks you if they are good or bad
+            and narrows down the broken commit</span
+          >
+
+          <ul>
+            <li>use <b>git log</b> to find a good commit and bad commit</li>
+            <li>Assuming newest commit is bad and the first commit is good</li>
+            <li><b>git bisect start</b></li>
+            <li>
+              <b>git bisect good commitid</b> - let the bisect know of a good
+              commit
+            </li>
+            <li>
+              <b>git bisect bad commitid</b> - let the bisect know of a bad
+              commit. This will checkout an old commit for us - the commit
+              halfway between good commit and bad commit - it cuts the commit
+              history down in halves untill it finds the bad commit
+            </li>
+            <li>
+              If this commit is bad run <b>git bisect bad</b> or if it is good
+              run <b>git bisect good</b>
+            </li>
+            <li>
+              Repeat untill bisect finds the bad commit . It prints the first
+              bad commit - commitid is the first bad commit
+            </li>
+            <li>
+              To end run <b>git bisect reset</b> . It will checkout the current
+              branch
+            </li>
+            <li>
+              To know more about the bad commit run <b>git show commitid</b>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <br />
+    <div>
+      <b>Reference</b>
+
+      <ul>
+        <li>https://www.atlassian.com/git/tutorials</li>
+        <li>
+          https://www.freecodecamp.org/news/git-fetch-vs-pull/#:~:text=git%20fetch%20is%20the%20command,changes%20from%20the%20remote%20repository.
+        </li>
+        <li>https://dzone.com/articles/top-20-git-commands-with-examples</li>
+        <li>
+          https://stackoverflow.com/questions/3197413/how-do-i-delete-unpushed-git-commits
+        </li>
+        <li>
+          https://opensource.com/article/18/6/git-reset-revert-rebase-commands
+        </li>
+        <li>https://www.becomebetterprogrammer.com/git-rebase/</li>
+        <li>
+          https://www.metaltoad.com/blog/beginners-guide-git-bisect-process-elimination
+        </li>
+        <li>
+          https://www.freecodecamp.org/news/git-config-how-to-configure-git-settings/
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
