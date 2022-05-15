@@ -56,11 +56,13 @@
               cloning only with 1 commit id in history
             </li>
             <li>
-              <b>git clone -b feature repo</b> - clone specified branch
-              from repo . -b option will fetch all branches and checkout the branch we choose 
+              <b>git clone -b feature repo</b> - clone specified branch from
+              repo . -b option will fetch all branches and checkout the branch
+              we choose
             </li>
             <li>
-              <b>git clone --single-branch --branch branch repo </b> - clone and fetch exclusively the branch we chose
+              <b>git clone --single-branch --branch branch repo </b> - clone and
+              fetch exclusively the branch we chose
             </li>
           </ul>
         </li>
@@ -374,14 +376,15 @@
         <li>
           <b>git log</b>
           <span>show commits for the currently selected branch</span>
-          <span
-            >view all commits across all branches by executing
-            <b>git log --branches=*</b></span
-          >
           <ul>
+            <li><b>git log -n</b> - show last n commits</li>
+            <li><b>git log --oneline</b>- show commit ids with messages</li>
+            <li>
+              <b>git log --branches=*</b
+              ><span>- view all commits across all branches by executing </span>
+            </li>
             <li>
               <b>git log -S</b>
-
               <span
                 >To list all original commits in-which a specific code piece was
                 added or modified execute git log with the -S option. Append the
