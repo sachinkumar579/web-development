@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dockerizing node app</title>
+  </head>
+  <body>
+    <h2>Dockerizing a node app in Windows 10 Home system</h2>
+
+    <ul>
+      <li>
+        Open Ubuntu from Windows Start Menu <br />
+        <img src="files/1.JPG" />
+      </li>
+      <li>
+        Create a directory www in home directory for creating applications.
+        Create a directory called node in www . You could also create a project
+        outside Ubuntu and run docker commands
+        <br />
+        <img src="files/2.JPG" />
+      </li>
+
+      <li>
+        Install vscode in your system .Open node project in vscode using
+        command<br />
+        <img src="files/3.JPG" />
+      </li>
+
+      <li>
+        After opening the node directory in vscode add these 3 files - 2 are for
+        node application and 1 Dockerfile to create image and run container
+        <br />
+        <img src="files/4.JPG" /><img src="files/5.JPG" /><img src="files/6.JPG" />
+      </li>
+
+      <li>
+        Go to terminal and select Ubuntu (WSL). Check docker installed version
+        <img src="files/7.JPG" />
+      </li>
+
+      <li>
+        Run docker build command to create the image
+        <br />
+        <img src="files/8.JPG" />
+      </li>
+
+      <li>
+        Run container using image id <br />
+        <img src="files/9.JPG" />
+      </li>
+
+      <li>
+        Launch from browser
+        <br />
+        <img src="files/10.JPG" />
+      </li>
+
+      <li>
+        Check container status using Docker Desktop . Open Docker desktop - Goto
+        Images and Containers
+        <br />
+        <img src="files/11.JPG" />
+        <img src="files/12.JPG" />
+      </li>
+
+      <li>
+        Open another Ubuntu (WSL) terminal . Check running containers<br />
+        <img src="files/13.JPG" />
+      </li>
+
+      <li>
+        Stopping container using NAMES <br />
+        <img src="files/14.JPG" />
+      </li>
+
+      <li>
+        Softwares installed in the system to run Docker<br />
+        <img src="files/15.JPG" />
+      </li>
+
+      <li>
+        Exit Docker Desktop from Windows tray option . Open Ubuntu and run
+        docker version command <br />
+        <img src="files/16.JPG" />
+      </li>
+
+      <li>
+        Open Docker Desktop . This will start Docker engine . Goto Settings -
+        Resources - WSL Integration .Enable integration with my default WSL
+        distro must be checked .
+        <span>
+          Open Ubuntu terminal and run docker command - It will show client and
+          server</span
+        ><br />
+        <img src="files/17.JPG" />
+        <img src="files/18.JPG" />
+      </li>
+
+      <li>
+        Copying files to container without restarting and rebuilding the image.
+        Make changes to test.py file . copy the file to container using
+        container name . Start using the same container name . This will reflect
+        changes done in test.py file. Check processes for the new container that
+        was created
+        <br />
+        <img src="files/19.JPG" />
+      </li>
+    </ul>
+  </body>
+</html>

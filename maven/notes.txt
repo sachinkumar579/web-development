@@ -1,0 +1,185 @@
+Maven is a build tool / Software management tool
+
+Compiling the source code , run tests, package jar ,package war ,deploy to server 
+Also manage dependencies 
+Reusability using plugins
+
+Installation
+
+download zip from maven website and unpack
+
+Update env variable . Add bin directory to path. 
+set PATH="C:\Users\sachu\Downloads\apache-maven-3.8.6-bin\apache-maven-3.8.6\bin";%PATH%
+    
+Run command to check installed version mvn -version 
+
+Make sure JAVA_HOME is set to the location of your JDK
+
+
+Maven commands 
+1. Create standalone java maven project
+mvn archetype:generate -DgroupId=test -DartifactId=test -DarchetypeArtifactId=maven-archetype-quickstart
+
+archetype is a maven plugin . generate is a goal
+
+archetype:generate -> goal
+-D parameters for goal
+groupId- package name
+artifactId - java project name 
+archetypeArtifactId - type of project to be created 
+
+Life cycles- phases -goals 
+
+Effective POM is a super pom. pom xml derives content from this xml 
+
+decompile  . class to source code 
+javap -c -classpath "C:\Users\sachu\Desktop\tutorials\maven\test\target\classes\test" test
+
+Fix Target option 1.5 is no longer supported. Use 1.6 or later. error
+
+Add in pom xml
+ <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+
+USe tomcat in eclipse . For server port issue when u start change admin port from -1 to 0 
+
+
+pom xml
+cordinates
+groupId - package
+artifactId  - project name , name of final jar/war
+version - versions . starts with SNAPSHOT version and then release 
+packaging - jar/war
+url -owner
+dependencies 
+
+version - 1.7,1.8,9,10,11,12,13.....
+
+Run java code using the built jar 
+java -cp target/test-1.jar test.App
+
+java- command
+cp - classpath
+test-1.jar - contains .class files
+test.App - fully qualified class name 
+
+goal : pluginId:goalId
+ex archetype:generate 
+
+Phases are part of the life cycle. They contain goals.. The actual work is done by goals...
+
+maven creates a local repository .. downloads dependencies from central repository and put it in local repo
+
+Passing arguments from command line : java -cp target/test-1.jar test.App 1 2
+
+output 3
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println(Integer.parseInt(args[0])+ Integer.parseInt(args[1]));
+    }
+}
+
+ mvn install -DskipTests - to skip tests 
+ 
+ maven pulls transitive dependencies. this is checked in the downloaded jar files from maven central repository. Every jar downloaded will have a pom file.
+ 
+ creating maven web application. select arch type web. 
+ pom xml container war as packaging finalname for the generated war name . also overrides the default war name 
+ 
+ archtype web contains a web.xml - it has servlet entries or the url to class mapping 
+ 
+ geronimo open source version of servlet jar 
+                                    
+ scope - test - only used during test phase
+ scope - provided - will not be used during packaging . ex is tomcat containing all req jars to run a web app
+ 
+ creating a multi module maven project
+ 
+ add a pom xml file in main directory containining maven projects 
+ pom xml packaging should be pom and modules tag must be added with all maven projects 
+ 
+ There are total 6 scopes compile , runtime , provided , test , system, import 
+ 
+ <dependency>
+   <scope/>
+ <dependency/>
+ 
+ 
+ dependencymanagement in case of multi module maven project 
+ managed dependency - the dependencies are automatically available for all sub projects
+ 
+ parent pom xml
+ 
+  <dependencyManagement>
+    <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.4</version>
+    </dependency>
+    </dependencies>
+  </dependencyManagement>
+ 
+ 
+ child pom xml 
+     <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+    </dependency>
+ 
+Version 4.4 will be available for child projects  
+ 
+ profiles - can be used for adding environment specific properties during project build .
+ 
+ command - mvn install -ptest
+ 
+ 
+ CI/CD 
+ Continuous Integration - Developer commits code - build - feedback - run tests 
+ Continuos Delivery - manual intervention for prod deployment 
+ Continuos Deployment - deployed all the way till prod   
+ 
+ Jenkins dashboard 
+ NEw item - create a new job
+ People- manage users and their access 
+ Build history - history of all the jobs that have run - failed or succeded 
+ MAnage Jenkins - Global tool conf - configuring paths for tools 
+ MAnage plugins  - installing plugins 
+ My views - create ur own views
+ Build queue - job execeution status  
+  
+ Docker - gives us the ability to package once run anywhere , once our application docker image is built 
+ we can run it on any OS that has the docker software 
+ 
+ Nexus artifact repository 
+ version as such 1.0.0-SNAPSHOT will go to maven-snapshot
+ version as 1.0 will go to maven-release 
+ 
+ proxy (maven) repository will act as a proxy to central repository and it ll cache everything locally 
+ 
+ settings.xml - when downloading softwares from internet, whichever server is near will be used
+ 
+ <repositories> - repositories for pulling the jars
+ <distributionManagement> - publishing the jars 
+ 
+ If repositories is removed from settings.xml it ll take the repo link from mirrors and not from the central maven repo 
+ 
+ check maven-antrun-plugin to print all properties 
+ properties
+ project.
+ project.build.
+ 
+ ex <finalName>${project.artifactId}</finalName>
+ 
+ adding custom properties within <properties></properties> . can also be added in parent pom
+ and used in child pom 
+ 
+ package will compile your code and also package it. For example, if your pom says the project is a jar, it will create a jar for you when you package it and put it somewhere in the target directory (by default).
+
+install will compile and package, but it will also put the package in your local repository. This will make it so other projects can refer to it and grab it from your local repository.

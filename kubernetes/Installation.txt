@@ -1,0 +1,64 @@
+
+Within a cluster 
+Master node - a VM like AWS EC2 - API server and scheduler must be installed 
+Worker node - Docker and kubelets should be installed 
+
+kubectl or kube control tool - tool for sending instructions to cluster - install in the local machine 
+
+Minikube - tool uses vm in ur local machine to create clusters - can be used to playaround with kubernetes 
+minikube is local Kubernetes, focusing on making it easy to learn and develop for Kubernetes.
+creates a single node cluster 
+
+
+Installation steps 
+
+1) Install chocolatey windows package manager https://chocolatey.org/
+
+Run command in powershell in admin mode
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+2) Reopen powershell in admin mode and run command https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/#install-kubectl-binary-with-curl-on-windows
+command choco install kubernetes-cli
+
+kubectl will be installed 
+
+3) from cmd run cd %USERPROFILE%
+mkdir .kube
+cd .kube
+create a file called .config 
+
+4) Install minikube using chocolatey https://minikube.sigs.k8s.io/docs/start/
+choco install minikube
+
+5) Launch docker desktop 
+hyperv driver didnt work because hyperv role cannot be installed on Windows 10 Home 
+open cmd in admin mode and run command 
+minikube start --driver=docker
+This virtual cluster in a virtual machine is created with the help of docker instead of other drivers  
+
+This will create a virtual machine with a development cluster containing a single master and worker node which share resources.
+This will install other softwares like API server, kubelet ...
+
+6) Status 
+minikube status
+minkube delete - deletes the virtual machine created  
+
+7) visual dashboard 
+minikube dashboard 
+
+Turns out docker eats up a lot of RAM and virtual box didnt work
+
+C:\Users\sachu>minikube start --driver=virtualbox
+* minikube v1.26.0 on Microsoft Windows 10 Home Single Language 10.0.19044 Build 19044
+* Using the virtualbox driver based on user configuration
+* Starting control plane node minikube in cluster minikube
+* Creating virtualbox VM (CPUs=2, Memory=2200MB, Disk=20000MB) ...
+! StartHost failed, but will try again: creating host: create: precreate: This computer doesn't have VT-X/AMD-v enabled. Enabling it in the BIOS is mandatory
+* Creating virtualbox VM (CPUs=2, Memory=2200MB, Disk=20000MB) ...
+* Failed to start virtualbox VM. Running "minikube delete" may fix it: creating host: create: precreate: This computer doesn't have VT-X/AMD-v enabled. Enabling it in the BIOS is mandatory
+
+X Exiting due to HOST_VIRT_UNAVAILABLE: Failed to start host: creating host: create: precreate: This computer doesn't have VT-X/AMD-v enabled. Enabling it in the BIOS is mandatory
+* Suggestion: Virtualization support is disabled on your computer. If you are running minikube within a VM, try '--driver=docker'. Otherwise, consult your systems BIOS manual for how to enable virtualization.
+* Related issues:
+  - https://github.com/kubernetes/minikube/issues/3900
+  - https://github.com/kubernetes/minikube/issues/4730

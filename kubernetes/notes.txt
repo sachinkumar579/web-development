@@ -1,0 +1,98 @@
+Kubernetes 
+
+With Kubernetes we have a way of defining our deployments , scaling of containers and how containers should be monitored and replaced if they fail , independent from the cloud service .  
+
+Collection of tools to deploy containers in any server . You install Kubernetes which is an open source software and deploy containers .  
+
+Pod is the smallest possible unit can hold single container or multiple containers which can be defined in Kubernetes file to create  
+
+Pod runs in a worker node which is a virtual machine . A worker node is a machine with a certain amount if CPU and memory . you can run more than one pod on a worker node . A worker node has a proxy to control network traffic of the pods on the worker node . 
+
+Master node (Control plane) controls your deployment (all worker nodes)  
+
+Cluster -> Master node ->Worker node (pod), Worker node(pod) ,Worker node(pod) 
+
+Softwares in worker node kubelet manage communication between master and worker node , docker for managing and running containers , kube proxy � control incoming and outgoing traffic to pods  
+
+Master node  
+
+API Server API for kubelets to communicate 
+
+Scheduler check pod health status  ,selects worker nodes to run pods  
+
+Kube Controller Manager  check worker node status  
+
+Cloud Controller Manager for cloud specific resources  
+
+kubectl - tool for sending instructions to cluster .
+
+If containers are deployed to cloud using kubernetes the cluster will be in the cloud env and kubectl is installed in local machine from where the deployments can be managed
+
+Kubernetes installation in local - install kubectl and minikube
+
+Expose services to use them  
+
+Kubectl expose service name  
+
+If the applications crashes the container will be restarted by Kubernetes  
+
+A replica is an instance of a pod . 3 replicas means that the same pod is running 3 times  
+
+Scaling – running multiple containers  
+
+Kubectl scale  
+
+Check pods – kubectl get pods 
+
+Updating deployments – kubectl set image .. updates tags so that Kubernetes can download the new image
+
+kubernetes works with objects - it knows pods, deplyments , services , volume ..... 
+By default, a pod has a internal cluster IP address 
+
+docker tag first-app sachinramuk/kub-first-app
+docker push sachinramuk/kub-first-app
+kubectl create deployment first-app --image=sachinramuk/kub-first-app - creates a deployment object and sends to kubernetes cluster 
+kubectl get deployments
+
+Service objects - responsible for exposing pods to other pods in the cluster or to visitors outside the cluster 
+
+IP changes on restarting pods 
+
+Exposing ports using Services object
+kubectl expose deployment first-app --type=LoadBalancer --port=8080
+kubectl get services display services
+minikube service first-app - launch application running in pod 
+
+Updating deployments - kubectl set image deployment/first-app kub-first-app=sachinramuk/kub-first-app:1
+This will pull the images from hub and restart pods containing containers
+
+kubectl scale deployment/first-app --replicas=3 - scale up
+kubectl scale deployment/first-app --replicas=1 - scale down
+kubectl rollout status deployment/first-app - pod update status 
+
+Kubernetes using rolling update strategy during redeployments. it doesnt shut down the old pod before the new pod is up and running 
+
+kubectl rollout undo deployment/first-app - rollout recent deployment 
+
+type LoadBalancer must be added in services.yaml because it is only exposed only internally in the cluster 
+
+Remove all resources 
+kubectl delete service first-app 
+kubectl delete deployment first-app 
+you will be able to access the kubernetes web portal and pods will dissapear 
+
+write down deployment and service configuration into a file and apply that file to the cluster - to create new deployment based on the
+configuration in the file
+
+template of a deployment always describes a pod 
+
+kubectl apply -f ./deployment.yaml - will start a deployment 
+
+Volumes survive container restarts and removal , they are removed when pods are destroyed 
+Volumes are inside a pod . 
+emptyDir simply creates a new empty directory whenever the pod starts And it keeps this directory alive and filled with data as long as the pod is alive.
+
+Networking 
+types : ClusterIP - IP exposed internally , Nodeport , LoadBalancer - IP exposed to everyone
+
+With Services, you get stable IP addresses, and 1 service has its own IP address ,and that IP address will not change.
